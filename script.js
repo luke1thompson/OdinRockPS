@@ -16,7 +16,7 @@ function playRound(player, computer) {
 
     if (player == computer) {
         score += .5;
-        return `Both sides play ${pShape}! It's a Tie!`
+        return `Both sides play ${pShape}! It's a Tie! (1/2 pt)`
     } if (player - computer == 1 || player - computer == -2) {
         score += 1;
         return `You win! Your ${pShape} beats ${cShape}!`
@@ -56,7 +56,8 @@ function game() {
 
         playerChoice = prompt('Rock, Paper, or Scissors?', 'rock');
         let pNum = shapeToNum(playerChoice);
-        if (pNum > 0) {
+
+        if (pNum >= 0) {
             console.log(playRound(pNum, getComputerChoice()));
         } else {
             console.log('Invalid input! you forfeit this round!');
