@@ -1,27 +1,26 @@
 console.log('Testing Testing 321');
-/*
-    0 - Rock
-    1 - Paper
-    2 - Scissors
-*/
 
 function getComputerChoice() {
     return Math.floor(Math.random() * 3);
 }
 
+// inputs are both numbers, so that the win/loss logic is easy to implement
 function playRound(player, computer) {
-    ;
     pShape = numToShape(player);
     cShape = numToShape(computer);
 
     if (player == computer) {
+        // if the player and computer choose the same value, tie
         score += .5;
-        return `Both sides play ${pShape}! It's a Tie! (1/2 pt)`
+        return `Both sides play ${pShape}! It's a Tie! (1/2 pt)`;
     } if (player - computer == 1 || player - computer == -2) {
+        // if the player number is one above the computer, they are winning.
+        // if player has 0 (rock) and computer 2 (scissors), also win
         score += 1;
-        return `You win! Your ${pShape} beats ${cShape}!`
+        return `You win! Your ${pShape} beats ${cShape}!`;
     } else {
-        return `You lose! Their ${cShape} beats your ${pShape}!`
+        // else, the computer has won
+        return `You lose! Their ${cShape} beats your ${pShape}!`;
     }
 }
 
@@ -54,9 +53,9 @@ function game() {
     for (let i = 1; i < 6; i++) {
         console.log(`Game ${i}: Choose a Shape`)
 
-        playerChoice = prompt('Rock, Paper, or Scissors?', 'rock');
-        let pNum = shapeToNum(playerChoice);
-
+        playerShape = prompt('Rock, Paper, or Scissors?', 'rock');
+        let pNum = shapeToNum(playerShape);
+        
         if (pNum >= 0) {
             console.log(playRound(pNum, getComputerChoice()));
         } else {
@@ -67,7 +66,7 @@ function game() {
     console.log(`You won ${score} out of 5 games! Better luck next time!`)
 }
 
-let playerChoice;
+let playerShape;
 let score = 0;
 
 game();
