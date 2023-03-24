@@ -68,5 +68,3 @@ function game() {
 
 let playerShape;
 let score = 0;
-
-game();
