@@ -8,21 +8,39 @@
 .arena {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .player,
 .enemy {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .pchoice {
     width: 100%;
     display: flex;
+    justify-content: center;
 }
 
 
 .pchoice button {
     flex: 1 0 0;
+}
+
+.scoreboard {
+    text-align: center;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.record,
+.final {
+    font-size: 20pt;
+    color: darkgreen;
+    text-align: center;
+}
+
+.final {
+    color: red;
 }

@@ -14,22 +14,25 @@
     <div class="header">Choose your weapon!</div>
     <div class="arena">
         <div class="player">
-            Your choice?
-            <img src="./pics/myblank.png" alt="Paper" style="width:300px">
+            <img id='playericon' src="./pics/myblank.png" style="width:300px">
             <div class="pchoice">
                 <button class="choice" id="0">Rock</button>
                 <button class="choice" id="1">Paper</button>
                 <button class="choice" id="2">Scissors</button>
             </div>
         </div>
+        <div class="scoreboard">
+            Score:
+            <div id="score">0</div>
+        </div>
         <div class="enemy">
-            Enemy choice?
-            <img src="./pics/cpublank.png" alt="Paper" style="width:300px">
+            <img id='cpuicon' src="./pics/cpublank.png" alt="Paper" style="width:300px">
+            <button class="go">Go!</button>
         </div>
     </div>
-    <!-- <div style="text-align:center">
-        <button id="start">Go!</button>
-    </div> -->
+    <div class="history">
+
+    </div>
 </body>
 
 </html>
