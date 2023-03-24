@@ -118,7 +118,7 @@ function gameOver(history) {
     final.classList.add('final');
     history.appendChild(final);
 
-    setCPUicon('blank');
+    // setCPUicon('blank');
 }
 
 const choices = document.querySelectorAll('.choice');
