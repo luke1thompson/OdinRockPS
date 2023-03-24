@@ -20,10 +20,9 @@
 .pchoice {
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    text-align: center;
 }
 
+
 .pchoice button {
-    width: 100px;
+    flex: 1 0 0;
 }
