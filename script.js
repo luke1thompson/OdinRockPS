@@ -1,37 +1,32 @@
 console.log('script.juicy loaded');
 
-const test = document.querySelector('.arena');
-test.addEventListener('click', playRound);
-const buttons = document.querySelectorAll('.choice');
-buttons.forEach(button => button.addEventListener('click', playRound));
-window.addEventListener('keydown', playRound);
-
 function getComputerChoice() {
     return Math.floor(Math.random() * 3);
 }
 
 // inputs are both numbers, so that the win/loss logic is easy to implement
 function playRound (e) {
-    console.log('Trying!');
     const computer = getComputerChoice();
-    const player = 1;
-    //const player = document.querySelector('e.id');
+    const player = e.target.id;
     console.log(`Player chooses ${player} and CPU chooses ${computer}`);
 
-    // if (player == computer) {
-    //     // if the player and computer choose the same value, tie
-    //     score += .5;
-    //     return `Both sides play ${pShape}! It's a Tie! (1/2 pt)`;
-    // } if (player - computer == 1 || player - computer == -2) {
-    //     // if the player number is one above the computer, they are winning.
-    //     // if player has 0 (rock) and computer 2 (scissors), also win
-    //     score += 1;
-    //     return `You win! Your ${pShape} beats ${cShape}!`;
-    // } else {
-    //     // else, the computer has won
-    //     return `You lose! Their ${cShape} beats your ${pShape}!`;
-    // }
+    if (player == computer) {
+        // if the player and computer choose the same value, tie
+
+        console.log(`Both sides play ${player}! It's a Tie! (1/2 pt)`);
+    } if (player - computer == 1 || player - computer == -2) {
+        // if the player number is one above the computer, they are winning.
+        // if player has 0 (rock) and computer 2 (scissors), also win
+
+        console.log(`You win! Your ${player} beats ${computer}!`);
+    } else {
+        // else, the computer has won
+        console.log(`You lose! Their ${player} beats your ${computer}!`);
+    }
 }
+
+const buttons = document.querySelectorAll('.choice');
+buttons.forEach(button => button.addEventListener('click', playRound));
 
 // function numToShape(number) {
 //     if (number == 0) {
