@@ -1,5 +1,3 @@
-console.log('script.juicy loaded');
-
 let pnum;
 let pshape;
 let score = 0;
