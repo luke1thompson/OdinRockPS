@@ -17,7 +17,7 @@ function numToShape(number) {
     }
 }
 
-function setPicon(e) {
+function setPlayerIcon(e) {
     pshape = e.target.textContent;
     pnum = e.target.id;
 
@@ -32,7 +32,7 @@ function setCPUicon(cshape) {
     cimg.setAttribute('src', csource);
 }
 
-function playRound () {
+function playRound() {
     if (pshape == null) {
         return;
     }
@@ -44,21 +44,20 @@ function playRound () {
     let outcome;
 
     if (pnum == cnum) {
-        // if the pnum and cnum choose the same value, tie
         outcome = 'tie';
     } else if (pnum - cnum == 1 || pnum - cnum == -2) {
         // if the pnum is one above the cnum, player is winning.
         // if pnum is 0 (rock) and cnum is 2 (scissors), also win
         outcome = 'win';
     } else {
-        // else, the cnum has won
+        // else, the cpu has won
         outcome = 'lose';
     }
 
     addScore(pshape, cshape, outcome);
 }
 
-function addScore (pshape, cshape, outcome) {
+function addScore(pshape, cshape, outcome) {
     const history = document.querySelector('.history');
     const scoreboard = document.querySelector('#score');
 
@@ -72,8 +71,8 @@ function addScore (pshape, cshape, outcome) {
     const newrecord = document.createElement('div');
     newrecord.classList.add('record');
     let text;
-    
-    switch(outcome) {
+
+    switch (outcome) {
         case 'tie':
             text = `Both sides chose ${pshape}! It's a tie! (0 pts)`;
             break;
@@ -83,7 +82,7 @@ function addScore (pshape, cshape, outcome) {
             break;
         case 'lose':
             score -= 1;
-            text = `Your ${pshape} loses to ${cshape}! You lose the round!( -1 pt)`;
+            text = `Your ${pshape} loses to ${cshape}! You lose the round!(-1 pt)`;
             break;
         default:
             break;
@@ -121,19 +120,5 @@ function gameOver(history) {
 
 const choices = document.querySelectorAll('.choice');
 const gobutton = document.querySelector('.go');
-choices.forEach(choice => choice.addEventListener('click', setPicon));
+choices.forEach(choice => choice.addEventListener('click', setPlayerIcon));
 gobutton.addEventListener('click', playRound);
-
-// function shapeToNum(shape) {
-//     shape = shape.toLowerCase();
-
-//     if (shape == 'rock') {
-//         return 0;
-//     } else if (shape == 'paper') {
-//         return 1;
-//     } else if (shape == 'scissors') {
-//         return 2;
-//     } else {
-//         return -1;
-//     }
-// }
