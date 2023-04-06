@@ -119,6 +119,6 @@ function gameOver(history) {
 }
 
 const choices = document.querySelectorAll('.choice');
-const gobutton = document.querySelector('.go');
 choices.forEach(choice => choice.addEventListener('click', setPlayerIcon));
+const gobutton = document.querySelector('.go');
 gobutton.addEventListener('click', playRound);
